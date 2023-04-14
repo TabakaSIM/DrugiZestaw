@@ -6,8 +6,8 @@ import pl.tabaka.bmi.GUI.Gui;
 
 public class MainMenu {
 
-    UserData users = new UserData();
-    Gui gui = new Gui();
+    private UserData users = new UserData();
+    private Gui gui = new Gui();
 
 
 

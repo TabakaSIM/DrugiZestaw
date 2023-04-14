@@ -16,7 +16,6 @@ public class UserData {
     }
 
     public int login(String login, String password){
-        boolean match = false;
         for (int i=0;i<index+1;i++){
             if (users[i].match(login, password)) {
                 return i;
@@ -24,6 +23,7 @@ public class UserData {
         }
         return -1;
     }
+
     public User getFromID(int ID){
         return this.users[ID];
     }

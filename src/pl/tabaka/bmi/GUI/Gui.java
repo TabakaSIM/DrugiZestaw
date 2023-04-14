@@ -1,5 +1,7 @@
 package pl.tabaka.bmi.GUI;
 
+import pl.tabaka.bmi.constructor.User;
+
 import java.util.Scanner;
 
 public class Gui {
@@ -55,5 +57,25 @@ public class Gui {
 
     public void create(){
 
+    }
+
+    public void showBmi(float bmi) {
+        System.out.println("Twoje BMI to: " + bmi);
+        if (bmi < 18.5){
+            System.out.println("Masz niedowage!");
+        } else if (bmi < 25) {
+            System.out.println("Waga prawidlowa!");
+        } else if (bmi < 30) {
+            System.out.println("Masz nadwage!");
+        } else {
+            System.out.println("Zalecam pojscie do lekarza!");
+        }
+        System.out.println();
+    }
+
+    public void showStats(User user) {
+        System.out.println("Twoj wzrost to:"+ user.getWeight() +" cm");
+        System.out.println("Twoja waga to:"+ user.getHeight() + " kg");
+        System.out.println();
     }
 }

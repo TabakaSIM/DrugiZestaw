@@ -1,4 +1,7 @@
 package pl.tabaka.pietnastyKwietnia;
+
+import java.util.Scanner;
+
 /*
 6.Program zawiera zmienną n. Napisz program, który sprawdzi jaką potęgą liczby 2 jest liczba n.
 Program powinien wyświetlać potęgę lub komunikat jeśli liczba n nie jest potęgą liczby 2. Przykład:
@@ -13,7 +16,7 @@ to nie jest potęga dwójki
 */
 public class Zad6 {
     public static void main(String[] args) {
-        int n=48;
-        new Zad6Helper(n);
+        System.out.println("Wprowadz liczbe: ");
+        new Zad6Helper(new Scanner(System.in).nextInt());
     }
 }

@@ -6,8 +6,8 @@ import pl.tabaka.bmi.constructor.User;
 import java.util.Scanner;
 
 public class UserMenu {
-    Scanner scanner = new Scanner(System.in);
-    User user;
+    private User user;
+
     public UserMenu(User user) {
         this.user=user;
     }
@@ -19,15 +19,12 @@ public class UserMenu {
                 case 2: //Zaktualizuj dane
                     user.setBmi(gui.weight(),gui.height());
                 case 1: //Sprawdz BMI
-                    System.out.println("Twoje BMI to:"+ user.getBmi());
-                    System.out.println();
+                    gui.showBmi(user.getBmi());
                     continue;
                 case 3: //Wypisz dane
-                    System.out.println("Twoj wzrost to:"+ user.getWeight() +" cm");
-                    System.out.println("Twoja waga to:"+ user.getHeight() + " kg");
-                    System.out.println();
+                    gui.showStats(user);
                     continue;
-                case 4: //Usun konto
+                case 4: //Usun konto (nie usuwa poki co :( )
                     return;
                 default: //Wyjscie
                     return;

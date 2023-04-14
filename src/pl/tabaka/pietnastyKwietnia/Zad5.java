@@ -8,6 +8,7 @@ Program ma wypisywać na ekranie pierwotną oraz przesuniętą tablicę. Przykł
 */
 public class Zad5 {
     public static void main(String[] args) {
+
     Zad5i7Helper tab = new Zad5i7Helper(10);
     tab.print();
     tab.move();

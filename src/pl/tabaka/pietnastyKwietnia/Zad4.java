@@ -1,4 +1,7 @@
 package pl.tabaka.pietnastyKwietnia;
+
+import java.util.Scanner;
+
 /*
 4.Napisz program w którym zdefiniowana jest zmienna n.
 Program ma wyświetlać n elementów ciągu Fibonacciego.
@@ -10,10 +13,12 @@ n = 8
 */
 public class Zad4 {
     public static void main(String[] args) {
-        printFibbonaci(10);
+        System.out.println("Wprowadz dlugosc ciagu Fibonnaciego: ");
+        printFibbonaci(new Scanner(System.in).nextInt());
     }
 
     private static void printFibbonaci(int n) {
+
         if(n<3){
             System.out.println("0 1");
             return;
