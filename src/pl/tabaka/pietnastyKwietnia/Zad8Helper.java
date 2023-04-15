@@ -2,7 +2,7 @@ package pl.tabaka.pietnastyKwietnia;
 
 public class Zad8Helper {
     private int[] tab;
-
+    int counter=0;
     public Zad8Helper(int n) {
         this.tab = new int[n];
         System.out.println("Cala tablica to:");
@@ -18,10 +18,10 @@ public class Zad8Helper {
         int max = (int) Math.sqrt(this.tab.length+2);
         for(int i=0;i<max+1;i++){
             if(tab[i]!=0){
-                for(int j=i+1;j<this.tab.length;j++){
-                    if(tab[j]%tab[i]==0){
-                        tab[j]=0;
-                    }
+                for(int j=i+1;j<this.tab.length;j+=tab[i]){
+                    counter++;
+                    tab[j]=0;
+
                 }
             }
         }
@@ -31,5 +31,6 @@ public class Zad8Helper {
                 System.out.print(tab[i] + " ");
             }
         }
+        System.out.println(counter);
     }
 }
