@@ -30,9 +30,10 @@ public class Zad10Tab {
                         break;
                     }
                 }
-                amount++;
+
                 result = result || (result2 && result3);
             }
+            amount++;
         } while (!result);
         System.out.println("Stworzone tablice to: ");
         tab1.print();
