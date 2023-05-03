@@ -8,6 +8,6 @@ Program ma wypisywać wygenerowane tablice oraz ilość ponownych generacji tabl
 
 public class Zad10 {
     public static void main(String[] args) {
-    new Zad10Tab();
+    new Zad10Tab(10);
     }
 }

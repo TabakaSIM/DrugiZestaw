@@ -1,13 +1,12 @@
 package pl.tabaka.pietnastyKwietnia;
 
 public class Zad10Tab {
-    private int n=10;
     private int amount=-1;
     private Zad10TabGeneration tab1;
     private Zad10TabGeneration tab2;
     private Zad10TabGeneration tab3;
 
-    public Zad10Tab() {
+    public Zad10Tab(int n) {
         boolean result=false;
          do {
              this.tab1 = new Zad10TabGeneration(n);
