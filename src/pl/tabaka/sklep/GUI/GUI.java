@@ -3,22 +3,31 @@ package pl.tabaka.sklep.GUI;
 import pl.tabaka.sklep.artykuly.Produkt;
 import pl.tabaka.sklep.users.User;
 
+import java.util.Scanner;
+
 public class GUI {
 
-    public GUI() {
+    private static final GUI instance = new GUI();
+
+    private GUI() {
+    }
+
+    public static GUI getInstance(){
+        return instance;
     }
 
     public void showWelcomeMessage() {
         System.out.println("Witamy w sklepie u Thaumaturge'a");
     }
 
-    public void showLogginMenu() {
+    public String showLogginMenu() {
         System.out.println("1. Zaloguj");
         System.out.println("2. Zarejestruj");
         System.out.println("3. Exit");
+        return new Scanner(System.in).nextLine();
     }
 
-    public void showLogginMenuError() {
+    public void showMenuError() {
         System.out.println("Nie ma takiej komendy! Sprobuj ponownie!");
     }
 
@@ -34,28 +43,18 @@ public class GUI {
         System.out.println("Wybrales rejestrowanie sie.");
     }
 
-    public void showRegisterPodajLoggin() {
-        System.out.println("Podaj login konta");
-    }
-
-    public void showRegisterPodajHaslo() {
-        System.out.println("Podaj haslo konta");
-    }
-
     public void showRegisterError() {
         System.out.println("Login zajety!");
     }
 
-    public void showRegisterErrorOutOfIndex(){
-        System.out.println("Brak miejsca w systemie!");
-    };
-
-    public void showPodajLoggin() {
+    public String showPodajLoggin() {
         System.out.println("Podaj login:");
+        return new Scanner(System.in).nextLine();
     }
 
-    public void showPodajHaslo() {
+    public String showPodajHaslo() {
         System.out.println("Podaj haslo");
+        return new Scanner(System.in).nextLine();
     }
 
     public void showLogginError() {
@@ -98,16 +97,19 @@ public class GUI {
         System.out.println("Login: " + user.getLogin() + " - Stan konta: " + user.getMoney());
     }
 
-    public void showKupowanie() {
+    public String showKupowanieNazwa() {
         System.out.println("Wpisz nazwe produktu który chcesz kupić:");
+        return new Scanner(System.in).nextLine();
     }
 
-    public void showUserDoladowanie() {
+    public int showKupowanieIlosc() {
+        System.out.println("Wpisz ilosc produktu który chcesz kupić:");
+        return scanGetInt();
+    }
+
+    public float showUserDoladowanie() {
         System.out.println("Podaj kwote ktora chcesz doladowac konto:");
-    }
-
-    public void showZakupPodajIlosc() {
-        System.out.println("Podaj ilosc sztuk towaru ktory chcesz kupic:");
+        return scanGetFloat();
     }
 
     public void showZakupSucces() {
@@ -130,16 +132,27 @@ public class GUI {
         System.out.println("Pomyslnie doladowano srodki!");
     }
 
-    public void showRestock() {
+    public String showRestock() {
         System.out.println("Wpisz nazwe produktu do uzupelnienia:");
+        return new Scanner(System.in).nextLine();
     }
 
-    public void showRestockIlosc() {
+    public int showRestockIlosc() {
         System.out.println("Wprowadz ile sztuk produktu dodac na polke:");
+        return scanGetInt();
     }
 
-    public void showZmianaRoli() {
-        System.out.println("Podaj nazwe uzytkownika ktoremu chcesz zmienic nazwe:");
+    public void showRestockSucces() {
+        System.out.println("Pomyslnie dodano produkty!");
+    }
+
+    public void showRestockErrorAmount() {
+        System.out.println("Ilosc uzupelniajaca nie moze byc ujemna!");
+    }
+
+    public String showZmianaRoli() {
+        System.out.println("Podaj nazwe uzytkownika ktoremu chcesz zmienic role:");
+        return new Scanner(System.in).nextLine();
     }
 
     public void showZmianaRoliError() {
@@ -149,4 +162,29 @@ public class GUI {
     public void showZmianaRoliSucces() {
         System.out.println("Pomyslnie zmieniono role!");
     }
+
+    public void showWyjscieDoMenu() {
+        System.out.println();
+        System.out.println("Przekroczyles mozliwa ilosc prob!");
+        System.out.println("Wyjscie do menu glownego!");
+        System.out.println();
+    }
+
+    private int scanGetInt(){
+        Scanner scan;
+        do {
+            scan  = new Scanner(System.in);
+        } while (!scan.hasNextInt());
+        return scan.nextInt();
+    }
+
+    private float scanGetFloat() {
+        Scanner scan;
+        do {
+            scan  = new Scanner(System.in);
+        } while (!scan.hasNextFloat());
+        return scan.nextFloat();
+    }
+
+
 }

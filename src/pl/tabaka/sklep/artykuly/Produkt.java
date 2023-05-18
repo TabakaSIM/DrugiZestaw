@@ -1,11 +1,11 @@
 package pl.tabaka.sklep.artykuly;
 
-import pl.tabaka.sklep.GUI.GUI;
+import pl.tabaka.sklep.core.Writable;
 
-public class Produkt {
-    String nazwa;
-    float cena;
-    int iloscNaStanie;
+public class Produkt implements Writable {
+    private final String nazwa;
+    private float cena;
+    private int iloscNaStanie;
 
     public Produkt(String nazwa, float cena, int iloscNaStanie) {
         this.nazwa = nazwa;
@@ -13,8 +13,8 @@ public class Produkt {
         this.iloscNaStanie = iloscNaStanie;
     }
 
-    public boolean dostepny() {
-        return this.iloscNaStanie>0;
+    public void restock(int dodaj) {
+        this.iloscNaStanie+=dodaj;
     }
 
     public String getNazwa() {
@@ -22,15 +22,30 @@ public class Produkt {
     }
 
     public float getCena() {
-        return cena;
+        return this.cena;
     }
 
     public int getIloscNaStanie() {
         return iloscNaStanie;
     }
 
-    public void restock(int dodaj) {
-            this.iloscNaStanie+=dodaj;
-            return;
+    public void removeAmount(int ilosc){
+        if(ilosc<=this.iloscNaStanie){
+            iloscNaStanie-=ilosc;
+        } else {
+            System.out.println("Blad nie oblugiwany!");
+        }
+    }
+
+    @Override
+    public String toCSV(){
+        return new StringBuilder().append(getClass().getSimpleName())
+                .append(";")
+                .append(this.nazwa)
+                .append(";")
+                .append(this.cena)
+                .append(";")
+                .append(this.iloscNaStanie)
+                .toString();
     }
 }

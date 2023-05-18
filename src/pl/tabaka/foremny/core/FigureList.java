@@ -11,8 +11,7 @@ public class FigureList {
     public Figure[] lista;
 
     public FigureList(int ilosc) {
-        this.n=ilosc;
-        this.lista = new Figure[this.n];
+        this.lista = new Figure[this.n=ilosc];
         this.stworzListe();
         this.wypiszDane();
     }

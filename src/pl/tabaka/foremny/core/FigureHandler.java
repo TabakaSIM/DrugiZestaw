@@ -31,8 +31,8 @@ public class FigureHandler {
     }
 
     private Figure trojkatHanlder(int[] boki) {
-        if(boki[1]==boki[0]|boki[1]==boki[2]){
-            if(boki[0]==boki[2]){
+        if(boki[0]==boki[1]|boki[0]==boki[2]|boki[1]==boki[2]){
+            if(boki[0]==boki[1]&boki[0]==boki[2]){
                 return new TrojkatRownoboczny(boki);
             }
             return new TrojkatRownoramienny(boki);
