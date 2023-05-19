@@ -18,8 +18,6 @@ Jeśli jest wiecej niż jeden element o najwyższym priorytecie metoda zwraca el
 */
 
 public class FIFO {
-    FIFOGUI GUI = new FIFOGUI();
-
     public static void main(String[] args) {
         new FIFOPriority();
     }
